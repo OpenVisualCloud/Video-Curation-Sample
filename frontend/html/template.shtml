@@ -1,0 +1,41 @@
+<div class="template">
+    <div class="query-block">
+        <div class="query-body">
+            <div class="query-content">
+                <div class="query-row">
+                </div>
+            </div>
+            <div class="query-header"></div>
+        </div>
+        <div class="result-body">
+            <div class="result-header"></div>
+            <div class="result-content">
+            </div>
+        </div>
+    </div>
+    <div class="control-item">
+        <div class="control-icon">
+            <div class="query-cell">
+                <img></img>
+            </div>
+        </div>
+        <span class="control-text"></span>
+        <br>
+    </div>
+    <div class="input-group" number>
+        <span class="input-group-label" style="width:40%"><b></b></span>
+        <input class="input-group-field" type="number" value="">
+    </div>
+    <div class="input-group" text>
+        <span class="input-group-label" style="width:40%"><b></b></span>
+        <input class="input-group-field" type="text" value="">
+    </div>
+    <div class="input-group" select>
+        <span class="input-group-label" style="width:40%"><b></b></span>
+        <select class="input-group-field"></select>
+    </div>
+    <div class="result-segment">
+        <img></img>
+        <span></span>
+    </div>
+</div>

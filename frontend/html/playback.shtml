@@ -1,0 +1,18 @@
+<div id="playback" class="reveal large" data-reveal>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="playback-video">
+        <video controls="true" autoplay muted>
+            <source type="video/mp4"/>
+        </video>
+        <svg xmlns="http://www.w3.org/2000/svg" />
+    </div>
+
+    <div class="playback-info">
+        <table><tbody>
+        </tbody></table>
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+AddOption(
+    '--metaData', 
+    action="store_true", 
+    dest="metaData",
+    default = False,
+    help='Only build MetaData Extractor and Client Apps'
+)
+if(ARGUMENTS.get("VDMS_ROOT_PATH", "") != ""):
+    VDMS_ROOT_PATH = ARGUMENTS.get("VDMS_ROOT_PATH", "")
+else:
+    VDMS_ROOT_PATH = "./"
+    print("\n")
+    print("Please Specify VDMS_ROOT_PATH when building")
+    print("\n")
+
+if(ARGUMENTS.get("GST_GVA_PLUGIN_ROOT_PATH", "") != ""):
+    GST_GVA_PLUGIN_ROOT_PATH = ARGUMENTS.get("GST_GVA_PLUGIN_ROOT_PATH", "")
+else:
+    GST_GVA_PLUGIN_ROOT_PATH = "./"
+    print("\n")
+    print("Please Specify GST_GVA_PLUGIN_ROOT_PATH when building")
+    print("\n")
+
+if GetOption("metaData"):
+    SConscript(
+        "metaData_extract/SConscript",
+        exports=["VDMS_ROOT_PATH", "GST_GVA_PLUGIN_ROOT_PATH"],
+        variant_dir="metaData_extract/build/debug/"
+    )
+SConscript(
+    "client/SConscript",
+    exports=["VDMS_ROOT_PATH"],
+    variant_dir="client/build/debug/"
+)

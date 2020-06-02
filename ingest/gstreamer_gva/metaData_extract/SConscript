@@ -1,0 +1,63 @@
+source_files = "src/metaData_extract.cpp"
+
+
+env = Environment()
+
+
+Import("VDMS_ROOT_PATH", "GST_GVA_PLUGIN_ROOT_PATH")
+
+
+env.ParseConfig("pkg-config opencv4 --cflags --libs")
+env.ParseConfig("pkg-config gstreamer-1.0 --cflags --libs")
+env.ParseConfig("pkg-config gstreamer-video-1.0 --cflags --libs")
+env.ParseConfig("pkg-config gstreamer-allocators-1.0 --cflags --libs")
+
+
+env.Append(
+    CXXFLAGS = "-std=c++11 -fexceptions -g -fpermissive",
+    CPPPATH = [
+        "/usr/include",
+        "/usr/local/include",
+        "inc",
+        GST_GVA_PLUGIN_ROOT_PATH + "/gst-libs/gst/videoanalytics",
+        VDMS_ROOT_PATH,
+        VDMS_ROOT_PATH + "/client/cpp",
+        VDMS_ROOT_PATH + "/utils/include",
+        "/opt/vdms_converter/inc"
+    ],
+    LIBPATH = [
+        "/usr/lib/x86_64-linux-gnu",
+        "/usr/local/lib",
+        "/usr/lib",
+        "/opt/vdms_converter",
+        GST_GVA_PLUGIN_ROOT_PATH + "/build/intel64/Release/lib",
+        VDMS_ROOT_PATH + "/utils",
+        VDMS_ROOT_PATH + "/client/cpp",
+	"/usr/local/lib/x86_64-linux-gnu/gstreamer-1.0"
+    ],
+    LIBS = [
+        "vdms_converter",
+        "common",
+        "elements",
+        "gstvideoanalyticsmeta",
+        "gvaitttracer",
+        "image_inference_openvino",
+        "inference_elements",
+        "logger",
+        "opencv_pre_proc",
+        "opencv_utils",
+        "pre_proc",
+        "vdms-utils",
+        "jsoncpp",
+        "vdms-client",
+        "opencv_core",
+        "opencv_imgproc",
+        "opencv_imgcodecs",
+        "opencv_videoio",
+        "opencv_highgui"
+    ]
+)
+
+#        "cpu_extension",
+
+env.Program("metaData_extract", source_files)
