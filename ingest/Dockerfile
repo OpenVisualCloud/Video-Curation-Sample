@@ -1,5 +1,6 @@
 
-FROM openvisualcloud/xeon-ubuntu1804-analytics-dev:20.4 as build
+FROM openvisualcloud/xeon-ubuntu1804-analytics-dev:20.7 as build
+ENV PYTHONPATH=
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y -q libgoogle-glog-dev libgflags-dev libgtest-dev libjsoncpp-dev cmake git scons libprotobuf-dev protobuf-compiler
 
@@ -19,7 +20,7 @@ COPY gstreamer_gva /opt/gstreamer_gva
 RUN cd /opt/gstreamer_gva && scons --metaData -Q VDMS_ROOT_PATH=/opt/vdms/ GST_GVA_PLUGIN_ROOT_PATH=/usr/local/lib/x86_64-linux-gnu/gstreamer-1.0
 
 # final image
-FROM openvisualcloud/xeon-ubuntu1804-analytics-gst:20.4
+FROM openvisualcloud/xeon-ubuntu1804-analytics-gst:20.7
 
 # prerequisite
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y -q libjsoncpp1 python3-pip wget libdc1394-22 libprotobuf10 && rm -rf /var/lib/apt/lists/* && pip3 install 'kafka-python>=1.4.7' 'kazoo>=2.6.1'
