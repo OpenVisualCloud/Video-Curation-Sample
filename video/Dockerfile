@@ -1,5 +1,5 @@
 
-FROM openvisualcloud/xeon-ubuntu1804-media-nginx:20.4
+FROM openvisualcloud/xeon-ubuntu1804-media-nginx:20.7
 
 RUN apt-get update && apt-get install -y -q python3-tornado python3-requests python3-ply python3-psutil kafkacat curl && rm -rf /var/lib/apt/lists/*
 
