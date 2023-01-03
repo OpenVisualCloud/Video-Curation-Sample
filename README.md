@@ -3,7 +3,7 @@
 This sample implements libraries of video files content analysis, database ingestion, content search and visualization:   
 - **Ingest**: Analyze video content and ingest the data into the VDMS.  
 - **VDMS**: Store metadata efficiently in a graph-based database.  
-- **Visualization**: Visualize content search based on video metadata.  
+- **Visualization**: Visualize content search based on video metadata.
 
 <IMG src="doc/arch.png" height="250px">
 
