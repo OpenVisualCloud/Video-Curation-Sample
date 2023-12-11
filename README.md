@@ -97,4 +97,3 @@ Launch your browser and browse to ```https://<hostname>```. The sample UI is sim
 - [Kubernetes Setup](deployment/kubernetes/README.md)
 - [Sample Distribution](doc/dist.md)  
 - [Visual Data Management System](https://github.com/intellabs/vdms)  
-
